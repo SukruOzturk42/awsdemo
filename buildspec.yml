@@ -1,20 +1,18 @@
 version: 0.2
+
 phases:
   install:
     runtime-versions:
-    java: coretto17
-  pre_build:
-    commands:
-      - echo In the pre_build phase...
-      - mvn test
+      java: corretto17
   build:
     commands:
-      - echo Build completed on `date`
-      - mvn package
+      - mvn clean package
   post_build:
     commands:
-      - echo Build completed on `data`
+      - echo Build completed
 artifacts:
   files:
     - target/*.jar
+    - scripts/*.sh
+    - appspec.yml
   discard-paths: yes
